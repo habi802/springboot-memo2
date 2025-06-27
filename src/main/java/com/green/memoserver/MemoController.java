@@ -49,7 +49,8 @@ public class MemoController {
     @PutMapping
     public String updateMemo(@RequestBody MemoPutReq req) {
         log.info("req={}", req);
-        return "수정 완료";
+        int result = memoService.modify(req);
+        return result == 1 ? "수정 성공" : "수정 실패!";
     }
 
     // Delete

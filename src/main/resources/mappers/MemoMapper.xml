@@ -23,6 +23,13 @@
         WHERE id = #{id}
     </select>
 
+    <update id="modify">
+        UPDATE memo
+        SET title = #{title},
+            content = #{ctnts}
+        WHERE id = #{memoId}
+    </update>
+
     <delete id="deleteById">
        DELETE FROM memo
         WHERE id = #{id}
