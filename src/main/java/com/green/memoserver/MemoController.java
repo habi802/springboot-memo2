@@ -17,10 +17,9 @@ public class MemoController {
 
     // Create
     @PostMapping
-    public String insertMemo(@RequestBody MemoPostReq req) {
+    public int insertMemo(@RequestBody MemoPostReq req) {
         log.info("req={}", req);
-        int result = memoService.save(req);
-        return result == 1 ? "저장 성공" : "저장 실패!";
+        return memoService.save(req);
     }
 
     // Read
@@ -47,17 +46,15 @@ public class MemoController {
 
     // Update
     @PutMapping
-    public String updateMemo(@RequestBody MemoPutReq req) {
+    public int updateMemo(@RequestBody MemoPutReq req) {
         log.info("req={}", req);
-        int result = memoService.modify(req);
-        return result == 1 ? "수정 성공" : "수정 실패!";
+        return memoService.modify(req);
     }
 
     // Delete
     @DeleteMapping
-    public String deleteMemo(@RequestParam(name = "memo_id") int memoId) {
+    public int deleteMemo(@RequestParam(name = "memo_id") int memoId) {
         log.info("memoId={}", memoId);
-        int result = memoService.deleteById(memoId);
-        return result == 1 ? "삭제 성공" : "삭제 실패!";
+        return memoService.deleteById(memoId);
     }
 }
