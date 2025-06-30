@@ -5,10 +5,10 @@ import lombok.Getter;
 
 @Getter
 public class MemoGetOneRes {
+    @JsonProperty("memoId")
     private int id;
     private String title;
     @JsonProperty("ctnts")
     private String content;
-    @JsonProperty("created_at")
     private String createdAt;
 }
